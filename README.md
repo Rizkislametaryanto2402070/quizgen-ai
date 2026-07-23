@@ -23,7 +23,7 @@ git clone https://github.com/Rizkislametaryanto2402070/quizgen-ai.git
 # 3. Ikuti langkah instalasi lengkap di bagian "2. Cara Instalasi (XAMPP)" di bawah
 ```
 
-> Lihat juga [`langkah-langkah.md`](./langkah-langkah.md) untuk panduan alur presentasi/penjelasan source code.
+
 
 ---
 

@@ -1,0 +1,640 @@
+/* =====================================================
+   FILE: assets/css/style.css
+   FUNGSI: Styling utama project QuizGen AI
+
+   SISTEM DESAIN
+   - Warna utama   : #2C3E50 (navy keabu-abuan)
+   - Warna aksen    : #E67E22 (oranye)
+   - Latar belakang : #F8F9FA dengan gradien halus
+   - Judul          : Poppins
+   - Isi teks       : Nunito
+   - Grid spasi     : kelipatan 8px (8, 16, 24, 32, 48)
+   ===================================================== */
+
+:root {
+    --primary: #2C3E50;
+    --primary-soft: #3D5A73;
+    --accent: #E67E22;
+    --accent-dark: #C8690F;
+    --bg-base: #F8F9FA;
+    --text-dark: #243342;
+    --text-muted: #6B7785;
+    --border-soft: #E6E9ED;
+    --sidebar-width: 268px;
+
+    /* Skala spasi - kelipatan 8 */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-6: 48px;
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6,
+.font-heading {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-base);
+    background-image:
+        radial-gradient(circle at 0% 0%, rgba(44, 62, 80, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 100% 0%, rgba(230, 126, 34, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 50% 100%, rgba(44, 62, 80, 0.04) 0%, transparent 50%);
+    background-attachment: fixed;
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ===================== ANIMASI ===================== */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeSlideUp 0.5s ease both;
+}
+
+.fade-in-delay-1 { animation: fadeSlideUp 0.5s ease both; animation-delay: 0.08s; }
+.fade-in-delay-2 { animation: fadeSlideUp 0.5s ease both; animation-delay: 0.16s; }
+.fade-in-delay-3 { animation: fadeSlideUp 0.5s ease both; animation-delay: 0.24s; }
+
+/* ===================== AUTH PAGES ===================== */
+.auth-body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-base);
+    background-image:
+        radial-gradient(circle at 12% 18%, rgba(230, 126, 34, 0.14) 0%, transparent 38%),
+        radial-gradient(circle at 88% 82%, rgba(44, 62, 80, 0.16) 0%, transparent 42%),
+        linear-gradient(160deg, #EEF1F4 0%, #F8F9FA 55%, #EFF2F4 100%);
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-4);
+}
+
+/* Aksen geometris non-simetris di belakang kartu login/register */
+.auth-body::before {
+    content: '';
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0.06;
+    top: -120px;
+    left: -90px;
+}
+
+.auth-body::after {
+    content: '';
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 32px;
+    background: var(--accent);
+    opacity: 0.08;
+    bottom: -80px;
+    right: -60px;
+    transform: rotate(18deg);
+}
+
+.auth-wrapper {
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    z-index: 1;
+}
+
+.auth-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: var(--space-6) var(--space-4);
+    box-shadow: 0 24px 48px rgba(44, 62, 80, 0.14);
+    animation: fadeSlideUp 0.6s ease both;
+}
+
+.auth-icon {
+    font-size: 2.4rem;
+    color: var(--accent);
+}
+
+.auth-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.auth-card .form-label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--primary);
+    margin-bottom: var(--space-1);
+}
+
+.auth-card .form-control {
+    padding: 11px 16px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border-soft);
+    background-color: #FBFCFD;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.auth-card .form-control:focus {
+    border-color: var(--accent);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.14);
+}
+
+.auth-card .btn-primary {
+    background-color: var(--accent);
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-card .btn-primary:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(230, 126, 34, 0.28);
+}
+
+.auth-card .link-primary {
+    color: var(--accent);
+}
+
+.auth-card .link-primary:hover {
+    color: var(--accent-dark);
+}
+
+/* ===================== SIDEBAR ===================== */
+.sidebar {
+    width: var(--sidebar-width);
+    min-height: 100vh;
+    background: var(--primary);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-3) 0;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 0 var(--space-3) var(--space-3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sidebar-brand i {
+    color: var(--accent);
+    font-size: 1.4rem;
+}
+
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-2) var(--space-3);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.sidebar-user i {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: var(--space-1) var(--space-2);
+    margin: 0;
+    flex-grow: 1;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: rgba(255, 255, 255, 0.72);
+    text-decoration: none;
+    padding: 12px var(--space-2);
+    border-radius: 10px;
+    margin-bottom: var(--space-1);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.3s ease;
+}
+
+.sidebar-menu li a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    padding-left: calc(var(--space-2) + 4px);
+}
+
+.sidebar-menu li a.active {
+    background: var(--accent);
+    color: #fff;
+}
+
+.sidebar-menu li a i {
+    font-size: 1.05rem;
+}
+
+/* ===================== MAIN CONTENT ===================== */
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: var(--space-4) var(--space-6);
+    width: 100%;
+}
+
+.page-header {
+    margin-bottom: var(--space-4);
+}
+
+.page-header h2 {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.9rem;
+    margin-bottom: var(--space-1);
+}
+
+.page-header p {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.content-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: var(--space-4);
+    box-shadow: 0 6px 28px rgba(44, 62, 80, 0.07);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.content-card:hover {
+    box-shadow: 0 10px 32px rgba(44, 62, 80, 0.1);
+}
+
+/* ===================== STAT CARD ===================== */
+.stat-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: var(--space-3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    box-shadow: 0 6px 24px rgba(44, 62, 80, 0.06);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(44, 62, 80, 0.12);
+}
+
+/* Kartu kedua sedikit ditarik ke atas untuk efek overlap halus antar elemen */
+.row.g-4 > div:nth-child(2) .stat-card {
+    margin-top: -6px;
+}
+
+.row.g-4 > div:nth-child(3) .stat-card {
+    margin-top: 6px;
+}
+
+.stat-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.stat-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    margin-bottom: 2px;
+    font-size: 1.25rem;
+    color: var(--primary);
+}
+
+.stat-card p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.84rem;
+    font-weight: 600;
+}
+
+.bg-primary-soft { background: rgba(44, 62, 80, 0.08); color: var(--primary) !important; }
+.bg-success-soft { background: rgba(39, 174, 96, 0.12); color: #27AE60 !important; }
+.bg-warning-soft { background: rgba(230, 126, 34, 0.14); color: var(--accent-dark) !important; }
+
+.text-primary { color: var(--primary) !important; }
+
+/* ===================== BUTTON OVERRIDES ===================== */
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    font-weight: 600;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(230, 126, 34, 0.25);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn-outline-danger {
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-sm {
+    border-radius: 8px;
+}
+
+/* ===================== UPLOAD DROPZONE ===================== */
+.upload-dropzone {
+    border: 2px dashed #CBD3DA;
+    border-radius: 16px;
+    padding: var(--space-6) var(--space-2);
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    background: #FBFCFD;
+}
+
+.upload-dropzone:hover,
+.upload-dropzone.dragover {
+    border-color: var(--accent);
+    background: rgba(230, 126, 34, 0.05);
+}
+
+.upload-dropzone i {
+    font-size: 2.4rem;
+    color: var(--accent);
+    margin-bottom: var(--space-1);
+}
+
+.upload-dropzone p.fw-semibold {
+    color: var(--primary);
+}
+
+/* ===================== QUESTION DISPLAY ===================== */
+.question-item {
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.question-item:last-child {
+    border-bottom: none;
+}
+
+.question-number {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 0.8rem;
+    margin-bottom: var(--space-1);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.question-text {
+    font-weight: 600;
+    font-size: 1.04rem;
+    color: var(--primary);
+    margin-bottom: var(--space-2);
+}
+
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.option-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: #FAFBFC;
+    border: 1px solid var(--border-soft);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.option-row.correct-option {
+    background: rgba(39, 174, 96, 0.06);
+    border-color: rgba(39, 174, 96, 0.35);
+}
+
+.option-label {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1.5px solid #DDE2E6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+    color: var(--primary);
+}
+
+.option-row.correct-option .option-label {
+    border-color: #27AE60;
+    color: #27AE60;
+}
+
+/* ===================== BADGE ===================== */
+.badge {
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 8px;
+    letter-spacing: 0.2px;
+}
+
+/* ===================== EMPTY STATE ===================== */
+.empty-state {
+    text-align: center;
+    padding: var(--space-6) var(--space-2);
+    color: #A9B2BB;
+}
+
+.empty-state i {
+    font-size: 2.8rem;
+    margin-bottom: var(--space-1);
+    color: #C9D0D6;
+}
+
+/* ===================== TABLE ===================== */
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-soft);
+    padding-bottom: var(--space-2);
+}
+
+.table tbody td {
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-2);
+    color: var(--text-dark);
+    border-color: var(--border-soft);
+}
+
+.table-hover tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(44, 62, 80, 0.03);
+}
+
+/* ===================== ALERT ===================== */
+.alert {
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    padding: var(--space-2) var(--space-3);
+}
+
+.alert-danger {
+    background: rgba(231, 76, 60, 0.1);
+    color: #C0392B;
+}
+
+.alert-success {
+    background: rgba(39, 174, 96, 0.1);
+    color: #1E8449;
+}
+
+.alert-warning {
+    background: rgba(230, 126, 34, 0.12);
+    color: var(--accent-dark);
+}
+
+/* ===================== MODAL ===================== */
+.modal-content {
+    border-radius: 16px;
+    border: none;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border-soft);
+    padding: var(--space-3);
+}
+
+.modal-header .modal-title {
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.modal-body {
+    padding: var(--space-3);
+}
+
+/* ===================== FORM ELEMENTS ===================== */
+.form-select,
+.form-control {
+    border-radius: 10px;
+    border: 1.5px solid var(--border-soft);
+    padding: 10px 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-select:focus,
+.form-control:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.12);
+}
+
+.form-label {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.88rem;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        flex-wrap: wrap;
+        box-shadow: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: var(--space-3);
+    }
+
+    .row.g-4 > div:nth-child(2) .stat-card,
+    .row.g-4 > div:nth-child(3) .stat-card {
+        margin-top: 0;
+    }
+}

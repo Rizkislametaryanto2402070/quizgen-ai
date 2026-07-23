@@ -1,0 +1,5 @@
+# Mencegah file di folder uploads dieksekusi sebagai script PHP
+# (keamanan tambahan, karena folder ini menerima file dari user)
+<FilesMatch "\.(php|phtml|php3|php4|php5|pl|py|jsp|asp|sh|cgi)$">
+    Require all denied
+</FilesMatch>

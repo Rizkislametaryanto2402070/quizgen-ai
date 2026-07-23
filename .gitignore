@@ -1,0 +1,24 @@
+# =====================================================
+# .gitignore - QuizGen AI
+# =====================================================
+
+# Folder uploads berisi file materi hasil upload user (data sample/testing),
+# bukan bagian dari source code inti. Isinya diabaikan, tapi struktur folder
+# & .htaccess (proteksi keamanan) tetap dipertahankan di repository.
+uploads/*
+!uploads/.htaccess
+
+# File sistem operasi
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# File editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# Kredensial / konfigurasi lokal (jaga-jaga jika suatu saat database.php
+# diisi kredensial asli dan dibuat salinan backup)
+config/database.local.php
+*.env
